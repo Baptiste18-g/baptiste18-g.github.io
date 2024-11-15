@@ -60,10 +60,6 @@ nav ul li a {
 .hero {
     text-align: center;
     padding: 4rem 1rem;
-    border: 2px solid #444;
-    border-radius: 10px;
-    max-width: 800px;
-    margin: 2rem auto;
 }
 
 .availability {
@@ -74,7 +70,15 @@ nav ul li a {
     font-size: 0.9rem;
     margin-bottom: 2rem;
 }
-
+.bordered-box {
+    border: 2px solid #444; /* Bordure autour du conteneur */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 10px 20px; /* Espacement interne */
+    display: inline-flex; /* Alignement en ligne */
+    align-items: center; /* Aligne le contenu au centre verticalement */
+    gap: 10px; /* Espace entre les éléments */
+    margin-bottom: 2rem; /* Espace sous la bordure */
+}
 .status-dot {
     width: 8px;
     height: 8px;

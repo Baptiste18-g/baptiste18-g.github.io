@@ -115,3 +115,51 @@ nav ul li a {
     font-weight: bold;
     border-radius: 30px;
 }
+.sticky-image {
+    position: sticky;
+    top: 0; /* L'image reste en haut de la section */
+    width: 100px; /* Ajuste la taille de l'image */
+    height: auto;
+    z-index: 10; /* S'assure que l'image reste au-dessus */
+}
+
+/* Animation */
+.o_animated_text {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: fadeInFromLeft 1s ease forwards;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInFromLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Highlight Effect */
+.o_text_highlight {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.o_text_highlight_freehand_1 {
+    --text-highlight-color: #ffffff; /* Couleur du surlignage */
+    --text-highlight-width: 5px; /* Largeur de la ligne manuscrite */
+}
+
+.o_text_highlight_freehand_1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: var(--text-highlight-width);
+    background-color: var(--text-highlight-color);
+    z-index: -1;
+    transform: rotate(-2deg); /* Angle léger pour un effet manuscrit */
+    border-radius: 2px; /* Coins arrondis pour un effet naturel */
+}

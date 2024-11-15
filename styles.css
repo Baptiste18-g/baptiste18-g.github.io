@@ -60,6 +60,7 @@ nav ul li a {
 .hero {
     text-align: center;
     padding: 4rem 1rem;
+    border: #aaa;
 }
 
 .availability {

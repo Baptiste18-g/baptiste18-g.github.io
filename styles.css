@@ -117,9 +117,13 @@ nav ul li a {
 }
 .sticky-image {
     position: sticky;
-    top: 0; /* L'image reste en haut de la section */
-    width: 100px; /* Ajuste la taille de l'image */
-    height: auto;
+    border: 10px solid #ffc800; /* Bordure autour du conteneur */
+    border-radius: 50px; /* Coins arrondis */
+    top: 20; /* L'image reste en haut de la section */
+    left: -100px;
+    margin-left: 0;
+    width: 300px; /* Ajuste la taille de l'image */
+    height: 500px;
     z-index: 10; /* S'assure que l'image reste au-dessus */
 }
 

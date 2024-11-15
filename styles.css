@@ -115,18 +115,17 @@ nav ul li a {
     font-weight: bold;
     border-radius: 30px;
 }
+.image {
+    width: 300px;
+    height: auto;
+}
 .sticky-image {
     position: sticky;
-    border: 10px solid #ffc800; /* Bordure autour du conteneur */
-    border-radius: 50px; /* Coins arrondis */
-    top: 20; /* L'image reste en haut de la section */
-    left: -100px;
-    margin-left: 0;
+    top: 0; /* L'image reste en haut de la section */
     width: 300px; /* Ajuste la taille de l'image */
-    height: 500px;
+    height: auto;
     z-index: 10; /* S'assure que l'image reste au-dessus */
 }
-
 /* Animation */
 .o_animated_text {
     display: inline-block;

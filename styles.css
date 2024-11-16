@@ -164,7 +164,7 @@ nav ul li a {
 
 .timeline-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Aligne les cercles avec le contenu */
     margin-bottom: 300px; /* Espacement entre les items */
 }
 
@@ -179,10 +179,23 @@ nav ul li a {
     margin-right: 20px; /* Espace entre le cercle et le texte */
 }
 
-.timeline-item p {
+.timeline-content {
+    display: flex;
+    flex-direction: column; /* Empile le <h1> et le <p> verticalement */
+    gap: 10px; /* Ajoute un espace entre le <h1> et le <p> */
+}
+
+.timeline-content h1 {
+    font-size: 1.5rem; /* Taille du titre */
+    color: #fff;
+    margin: 0; /* Enlève les marges par défaut */
+}
+
+.timeline-content p {
     font-size: 1.2rem; /* Taille du texte */
     color: #fff; /* Couleur blanche du texte */
     margin: 0; /* Enlève les marges par défaut */
+    line-height: 1.6; /* Améliore la lisibilité */
 }
 .image {
     width: 300px;

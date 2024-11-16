@@ -176,7 +176,7 @@ nav ul li a {
     border-radius: 50%;
     position: relative;
     z-index: 1; /* Assure que les cercles sont au-dessus de la ligne */
-    margin-right: 20px; /* Espace entre le cercle et le texte */
+    padding-right: 40px; /* Espace entre le cercle et le texte */
 }
 
 .timeline-content {
@@ -184,6 +184,7 @@ nav ul li a {
     flex-direction: column; /* Empile le <h1> et le <p> verticalement */
     gap: 10px; /* Ajoute un espace entre le <h1> et le <p> */
     max-width: 80%;
+    padding-left: 20px;
 }
 
 .timeline-content h1 {

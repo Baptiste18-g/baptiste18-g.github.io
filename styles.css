@@ -183,6 +183,7 @@ nav ul li a {
     display: flex;
     flex-direction: column; /* Empile le <h1> et le <p> verticalement */
     gap: 10px; /* Ajoute un espace entre le <h1> et le <p> */
+    max-width: 80%;
 }
 
 .timeline-content h1 {

@@ -133,14 +133,24 @@ nav ul li a {
 .ligne {
     position: relative; /* Le conteneur est la référence pour les positions relatives et absolues */
 }
+.ptimeline {
+    text-align: center;
+    padding: 1rem 1rem;
+    background-color: #2b2b2b;
+}
+.ptimeline h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
 .timeline {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding-left: 50px; /* Ajuste l'espace entre la ligne et les textes */
+    background-color: #2b2b2b;
 }
-
 .timeline::before {
     content: "";
     position: absolute;
@@ -254,4 +264,13 @@ nav ul li a {
     z-index: -1;
     transform: rotate(-2deg); /* Angle léger pour un effet manuscrit */
     border-radius: 2px; /* Coins arrondis pour un effet naturel */
+}
+.realisations {
+    text-align: center;
+    padding: 1rem 1rem;
+}
+.realisations h1{
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }

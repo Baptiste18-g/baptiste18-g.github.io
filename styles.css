@@ -115,10 +115,63 @@ nav ul li a {
     font-weight: bold;
     border-radius: 30px;
 }
+.ligne {
+    position: relative; /* Le conteneur est la référence pour les positions relatives et absolues */
+}
+.timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 50px; /* Ajuste l'espace entre la ligne et les textes */
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 75px; /* Position de la ligne jaune */
+    top: 15px;
+    height: 1250px;
+    width: 50px;
+    background-color: #ffc800; /* Couleur jaune de la ligne */
+    border-radius: 25px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 300px; /* Espacement entre les items */
+}
+
+.timeline-circle {
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff; /* Couleur noire des cercles */
+    border: 20px solid #000000; /* Bordure blanche autour des cercles */
+    border-radius: 50%;
+    position: relative;
+    z-index: 1; /* Assure que les cercles sont au-dessus de la ligne */
+    margin-right: 20px; /* Espace entre le cercle et le texte */
+}
+
+.timeline-item p {
+    font-size: 1.2rem; /* Taille du texte */
+    color: #fff; /* Couleur blanche du texte */
+    margin: 0; /* Enlève les marges par défaut */
+}
 .image {
     width: 300px;
     height: auto;
+    position: relative; /* Permet d’utiliser z-index */
+    z-index: 2; /* Place l'image au-dessus */
 }
+
+.ligne p {
+    position: relative; /* Permet d’utiliser z-index */
+    z-index: 1; /* Place le texte derrière l'image */
+    color: #fff; /* Si le texte est caché, change sa couleur pour le voir */
+}
+
 .sticky-image {
     position: sticky;
     top: 0; /* L'image reste en haut de la section */
@@ -164,5 +217,4 @@ nav ul li a {
     background-color: var(--text-highlight-color);
     z-index: -1;
     transform: rotate(-2deg); /* Angle léger pour un effet manuscrit */
-    border-radius: 2px; /* Coins arrondis pour un effet naturel */
-}
+    border-radius: 2px; /* Coins arrondis pour un effet naturel 

@@ -17,7 +17,6 @@ header {
 }
 
 .container {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -26,14 +25,15 @@ header {
 }
 
 .logo {
-    font-size: 1.5rem;
-    color: #fff;
-    font-weight: bold;
+    height: auto;
+    width: 300px;
+    flex-shrink: 0; /* Garde le logo toujours à gauche */
 }
 
-.logo span {
-    color: #ddd;
-    font-weight: normal;
+nav {
+    flex: 1; /* Le nav prend tout l'espace disponible */
+    display: flex;
+    justify-content: center; /* Centre les liens de navigation */
 }
 
 nav ul {
@@ -47,14 +47,17 @@ nav ul li a {
     text-decoration: none;
     font-size: 1rem;
 }
-
 .contact-btn {
+    padding: 0 5rem;
+}
+.contact-btn a {
     background-color: #fff;
     color: #333;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     border-radius: 20px;
     text-decoration: none;
     font-weight: bold;
+    flex-shrink: 0; /* Garde le bouton aligné à droite */
 }
 
 .hero {

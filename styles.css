@@ -180,6 +180,27 @@ nav ul li a {
     z-index: 10; /* S'assure que l'image reste au-dessus */
 }
 /* Animation */
+.animated_text2 {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease, transform 1s ease; /* Transition pour une meilleure fluidité */
+    will-change: opacity, transform; /* Optimisation des performances */
+}
+
+.animated_text2.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation Keyframes (optionnel) */
+@keyframes fadeInFromBottom {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Animation */
 .o_animated_text {
     display: inline-block;
     opacity: 0;
@@ -217,4 +238,5 @@ nav ul li a {
     background-color: var(--text-highlight-color);
     z-index: -1;
     transform: rotate(-2deg); /* Angle léger pour un effet manuscrit */
-    border-radius: 2px; /* Coins arrondis pour un effet naturel 
+    border-radius: 2px; /* Coins arrondis pour un effet naturel */
+}

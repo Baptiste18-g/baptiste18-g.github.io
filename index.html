@@ -39,19 +39,19 @@
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-circle"></div>
-                <h1>Intuitif</h1>
+                <span class="animated_text2"><h1>Intuitif</h1></span>
             </div>
             <div class="timeline-item">
                 <div class="timeline-circle"></div>
-                <h1>Lisible</h1>
+                <span class="animated_text2"><h1>Lisible</h1></span>
             </div>
             <div class="timeline-item">
                 <div class="timeline-circle"></div>
-                <h1>Accessible</h1>
+                <span class="animated_text2"><h1>Accessible</h1></span>
             </div>
             <div class="timeline-item">
                 <div class="timeline-circle"></div>
-                <h1>Inclusif</h1>
+                <span class="animated_text2"><h1>Inclusif</h1></span>
             </div>
         </div>
         
@@ -61,3 +61,22 @@
         </div>
     </main>
 </body>
+</html>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const animatedElements = document.querySelectorAll('.animated_text2');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate'); // Ajoute la classe pour activer l'animation
+                    observer.unobserve(entry.target); // Arrête d'observer une fois l'animation activée
+                }
+            });
+        }, {
+            threshold: 0.1 // L'animation démarre lorsque 10% de l'élément est visible
+        });
+
+        animatedElements.forEach((element) => observer.observe(element));
+    });
+</script>

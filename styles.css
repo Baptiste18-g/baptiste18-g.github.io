@@ -292,11 +292,19 @@ nav ul li a {
 .coordonees {
     background-color: #fff;
     padding: 2rem 3rem;
+    padding-bottom: 30rem;
 }
 .coordonees h1{
     color:#333;
+    padding: 2rem 0;
 }
 .coordonees p{
     color:#333;
     font-size: 1rem;
+    padding: 0.5rem 0;
+}
+.coordonees a{
+    color:#333;
+    font-size: 1rem;
+    padding: 0.5rem 0;
 }

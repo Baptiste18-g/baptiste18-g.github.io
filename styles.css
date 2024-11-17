@@ -156,7 +156,7 @@ nav ul li a {
     position: absolute;
     left: 75px; /* Position de la ligne jaune */
     top: 15px;
-    height: 1250px;
+    height: 950px;
     width: 50px;
     background-color: #ffc800; /* Couleur jaune de la ligne */
     border-radius: 25px;
@@ -165,7 +165,7 @@ nav ul li a {
 .timeline-item {
     display: flex;
     align-items: flex-start; /* Aligne les cercles avec le contenu */
-    margin-bottom: 300px; /* Espacement entre les items */
+    margin-bottom: 200px; /* Espacement entre les items */
 }
 
 .timeline-circle {

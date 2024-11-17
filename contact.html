@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransitMapDesigner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="LogoBlanc.svg" alt="TransitMapDesigner" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Page d'accueil</a></li>
+                    <li><a href="#">Interventions</a></li>
+                    <li><a href="#">Tarif</a></li>
+                    <li><a href="contact.html">À propos</a></li>
+                </ul>
+            </nav>
+            <div class="contact-btn">
+               <a href="#">Contactez-nous</a> 
+            </div>
+            <div class="language">
+                <nav>
+                    <p>FR</p>
+                    <p>|</p>
+                    <a href="/en/index.html">EN</a> 
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Nous contacter</h1>
+        </section>
+        <div class="coordonees">
+            <h1>Nos coordonées</h1>
+            <p>E-mail : baptistegrenier18@icloud.com</p>
+        </div>
+    </main>
+</body>
+</html>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const animatedElements = document.querySelectorAll('.animated_text2');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate'); // Ajoute la classe pour activer l'animation
+                    observer.unobserve(entry.target); // Arrête d'observer une fois l'animation activée
+                }
+            });
+        }, {
+            threshold: 0.1 // L'animation démarre lorsque 10% de l'élément est visible
+        });
+
+        animatedElements.forEach((element) => observer.observe(element));
+    });
+</script>

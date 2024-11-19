@@ -308,3 +308,104 @@ nav ul li a {
     font-size: 1rem;
     padding: 0.5rem 0;
 }
+
+/* Responsive design pour les écrans inférieurs à 768px */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Empile les éléments verticalement */
+        align-items: center; /* Centre les éléments */
+    }
+
+    .logo {
+        width: 200px; /* Réduit la taille du logo sur mobile */
+        margin-bottom: 1rem; /* Ajoute un espace sous le logo */
+    }
+
+    nav {
+        justify-content: center; /* Centre la navigation */
+        margin-bottom: 1rem; /* Ajoute un espace sous la navigation */
+    }
+
+    nav ul {
+        flex-direction: column; /* Transforme les liens en colonne */
+        gap: 1rem; /* Ajoute un espacement entre chaque lien */
+    }
+
+    nav ul li a {
+        font-size: 0.9rem; /* Réduit la taille des liens */
+    }
+
+    .contact-btn {
+        margin-bottom: 1rem; /* Ajoute un espace sous le bouton */
+        text-align: center;
+    }
+
+    .language nav {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .hero {
+        padding: 2rem 1rem; /* Réduit les marges sur mobile */
+    }
+
+    .hero h1 {
+        font-size: 1.8rem; /* Réduit la taille du titre */
+    }
+
+    .hero p {
+        font-size: 0.9rem; /* Réduit la taille du texte descriptif */
+    }
+
+    .cta-btn {
+        padding: 0.6rem 1.5rem; /* Réduit le bouton d’appel à l’action */
+    }
+
+    .timeline {
+        padding-left: 20px; /* Réduit l’espace entre la ligne et le texte */
+    }
+
+    .timeline::before {
+        left: 20px; /* Ajuste la position de la ligne jaune */
+        width: 10px; /* Réduit la largeur de la ligne jaune */
+    }
+
+    .timeline-item {
+        margin-bottom: 100px; /* Réduit l’espacement entre les items */
+    }
+
+    .timeline-circle {
+        width: 60px; /* Réduit la taille des cercles */
+        height: 60px;
+        border: 10px solid #000; /* Ajuste la bordure des cercles */
+    }
+
+    .timeline-content {
+        padding-left: 10px; /* Réduit l’espace entre le cercle et le texte */
+    }
+
+    .timeline-content h1 {
+        font-size: 1.2rem; /* Réduit la taille des titres */
+    }
+
+    .timeline-content p {
+        font-size: 0.9rem; /* Réduit la taille du texte */
+    }
+
+    .realisations h1 {
+        font-size: 1.8rem; /* Réduit la taille du titre */
+    }
+
+    .coordonees {
+        padding: 1rem 2rem; /* Réduit les marges dans la section coordonnées */
+    }
+
+    .coordonees h1 {
+        font-size: 1.5rem; /* Réduit la taille du titre */
+    }
+
+    .coordonees p,
+    .coordonees a {
+        font-size: 0.8rem; /* Réduit la taille du texte et des liens */
+    }
+}

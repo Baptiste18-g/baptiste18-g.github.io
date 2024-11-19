@@ -156,7 +156,7 @@ nav ul li a {
     position: absolute;
     left: 75px; /* Position de la ligne jaune */
     top: 15px;
-    height: 950px;
+    height: 77%;
     width: 50px;
     background-color: #ffc800; /* Couleur jaune de la ligne */
     border-radius: 25px;
@@ -308,7 +308,10 @@ nav ul li a {
     font-size: 1rem;
     padding: 0.5rem 0;
 }
+/* Responsive design pour les écrans inférieurs à 1000px */
+@media (max-width: 1000px) {
 
+}
 /* Responsive design pour les écrans inférieurs à 768px */
 @media (max-width: 768px) {
     .container {
@@ -344,7 +347,9 @@ nav ul li a {
         text-align: center;
         margin-bottom: 1rem;
     }
-
+    .bordered-box {
+        flex-direction: column;
+    }
     .hero {
         padding: 2rem 1rem; /* Réduit les marges sur mobile */
     }
@@ -366,8 +371,8 @@ nav ul li a {
     }
 
     .timeline::before {
-        left: 20px; /* Ajuste la position de la ligne jaune */
-        width: 10px; /* Réduit la largeur de la ligne jaune */
+        left: 35px; /* Ajuste la position de la ligne jaune */
+        width: 30px; /* Réduit la largeur de la ligne jaune */
     }
 
     .timeline-item {

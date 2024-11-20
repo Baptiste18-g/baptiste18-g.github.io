@@ -413,6 +413,14 @@ nav ul li a {
     .coordonees a {
         font-size: 0.8rem; /* Réduit la taille du texte et des liens */
     }
+    .pricing-table table {
+        font-size: 0.9rem;
+    }
+
+    .pricing-table th,
+    .pricing-table td {
+        padding: 0.8rem;
+    }
 }
 footer {
     background-color: #333; /* Couleur de fond du footer */
@@ -443,3 +451,67 @@ footer {
 .social-icons a:hover {
     color: #ffc800; /* Couleur des icônes au survol */
 }
+.pricing {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #fff;
+    background-color: #222;
+}
+
+.pricing-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.pricing-header p {
+    font-size: 1rem;
+    color: #aaa;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.pricing-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.pricing-table th,
+.pricing-table td {
+    border: 1px solid #444;
+    padding: 1rem;
+    text-align: left;
+    color: #fff;
+}
+
+.pricing-table th {
+    background-color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.pricing-table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+.pricing-table tr:nth-child(odd) {
+    background-color: #1e1e1e;
+}
+
+.pricing-table a.cta-btn {
+    display: inline-block;
+    background-color: #ffc800;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.pricing-table a.cta-btn:hover {
+    background-color: #e6b000;
+}
+

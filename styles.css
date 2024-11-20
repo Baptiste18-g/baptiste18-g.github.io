@@ -414,3 +414,32 @@ nav ul li a {
         font-size: 0.8rem; /* Réduit la taille du texte et des liens */
     }
 }
+footer {
+    background-color: #333; /* Couleur de fond du footer */
+    padding: 1rem 0;
+    text-align: center;
+    color: #fff;
+}
+
+.footer-container p {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Espace entre les icônes */
+}
+
+.social-icons a {
+    color: #fff; /* Couleur des icônes */
+    text-decoration: none;
+    font-size: 1.5rem; /* Taille des icônes */
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ffc800; /* Couleur des icônes au survol */
+}

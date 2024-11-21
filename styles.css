@@ -515,3 +515,46 @@ footer {
     background-color: #e6b000;
 }
 
+/* Section contenant le séparateur */
+.parallax-separator {
+    position: relative;
+    height: 300px; /* Ajuste selon tes besoins */
+    overflow: hidden; /* Pour que l'image ne dépasse pas */
+  }
+
+  .parallax-separator::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('banieredark.svg') no-repeat center center;
+    background-size: cover;
+    transform: translateY(0);
+    z-index: -1;
+    will-change: transform;
+    
+  }
+/* Section contenant le séparateur */
+.parallax-separator2 {
+    position: relative;
+    height: 300px; /* Ajuste selon tes besoins */
+    overflow: hidden; /* Pour que l'image ne dépasse pas */
+  }
+
+  .parallax-separator2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('baniere.svg') no-repeat center center;
+    background-size: cover;
+    transform: translateY(0);
+    z-index: -1;
+    will-change: transform;
+    
+  }  
+  

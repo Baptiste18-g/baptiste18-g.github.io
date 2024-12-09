@@ -492,6 +492,12 @@ footer {
 .social-icons a:hover {
     color: #ffc800; /* Couleur des icônes au survol */
 }
+.footer p {
+    font-size: 1.2rem; 
+    color: #aaa;
+    line-height: 1.6;
+    text-align: center;
+}
 .pricing {
     text-align: center;
     padding: 2rem 1rem;

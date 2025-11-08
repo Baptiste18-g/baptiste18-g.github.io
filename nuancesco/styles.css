@@ -1,3 +1,7 @@
+:root {
+  --scroll: 0; /* valeur entre 0 et 1 */
+}
+
 body {
   background-color: #D7B675;
   background-image: url("fond.svg");
@@ -6,21 +10,45 @@ body {
   background-attachment: fixed;
   height: 200vh;
 }
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
+
+.hero {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none; /* pas cliquable */
 }
 
-#logo {
-  width: 250px;
-  transition: transform 0.1s ease-out;
-  transform-origin: center;
-  will-change: transform;
+/*.logo-container {
+  position: fixed;
+  top: calc(50% - var(--scroll) * 45%); /* monte vers le haut */
+  /*left: calc(25% - var(--scroll) * 20%); /* se décale vers la gauche */
+  /*transform: translate(-50%, -50%) scale(calc(1 - var(--scroll) * 0.6));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(2rem - var(--scroll) * 1.5rem);
+  transition: none;
+}
+*/
+.logo {
+  width: 170px;
+  height: auto;
+  position: fixed;
+  top: calc(50% - var(--scroll) * 40%); /* monte vers le haut */
+  left: calc(25% - var(--scroll) * 20%); /* se décale vers la gauche */
+  transform: translate(-50%, -50%) scale(calc(1 - var(--scroll) * 0.6));
+  display: flex;
+  align-items: center;
+  gap: calc(2rem - var(--scroll) * 1.5rem);
+  transition: none;
+}
+
+.brand-name {
+  width: auto;
+  height: 40px;
+  position: fixed;
+  top: calc(70% - var(--scroll) * 60%); /* monte vers le haut */
+  left: calc(25% - var(--scroll) * 10%); /* se décale vers la gauche */
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: calc(2rem - var(--scroll) * 1.5rem);
+  transition: none;
 }

@@ -1,16 +1,28 @@
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  const headerHeight = window.innerHeight;
-  const logo = document.getElementById('logo');
+gsap.registerPlugin(ScrollTrigger);
 
-  // Progression entre 0 (haut de page) et 1 (haut de la section suivante)
-  const progress = Math.min(scrollY / headerHeight, 1);
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    }
+  });
 
-  // Taille du logo : de 1 à 0.4
-  const scale = 1 - 0.6 * progress;
-
-  // Déplacement vertical : du centre à la position top=20px
-  const translateY = -progress * (window.innerHeight / 2 - 40);
-
-  logo.style.transform = `translateY(${translateY}px) scale(${scale})`;
-});
+  tl.to(".logo-container", {
+    top: "5%",
+    left: "5%",
+    xPercent: 0,
+    yPercent: 0,
+    flexDirection: "row",
+    gap: "0.5rem",
+    alignItems: "center",
+    transform: "none",
+    ease: "power2.out"
+  })
+  .to(".logo", {
+    width: 50,
+  }, "<")
+  .to(".brand-name", {
+    fontSize: "1.25rem",
+  }, "<");

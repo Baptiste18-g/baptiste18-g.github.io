@@ -6,8 +6,27 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <img src="logo.svg" alt="Logo" id="logo" />
-    </header>
-    <script src="script.js"></script>
+    <section class="hero">
+        <div class="logo-container">
+            <img src="logobrun.svg" alt="Logo" class="logo">
+            <img src="textlogobrun.svg" alt="Nom de marque" class="brand-name">
+        </div>
+    </section>
+<script>
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = window.innerHeight;
+  
+  // crée une valeur entre 0 et 1 selon la progression dans le 1er écran
+  let progress = Math.min(Math.max(scrollTop / docHeight, 0), 1);
+  
+  // met à jour la variable CSS
+  document.documentElement.style.setProperty("--scroll", progress);
+});
+</script>
+
+
+
+
 </body>
+

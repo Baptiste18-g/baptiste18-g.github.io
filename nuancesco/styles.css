@@ -2,6 +2,12 @@
   --scroll: 0; /* valeur entre 0 et 1 */
 }
 
+@font-face {
+  font-family: 'Lobster Two';
+  src: url('./fonts/lobstertworegular.ttf') format('truetype');
+  font-weight: 100;
+}
+
 body {
   background-color: #D7B675;
   background-image: url("fond.svg");
@@ -9,6 +15,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 200vh;
+  font-family: 'Lobster Two';
 }
 
 .hero {
@@ -28,7 +35,7 @@ body {
 }
 */
 .logo {
-  width: 170px;
+  width: 200px;
   height: auto;
   position: fixed;
   top: calc(50% - var(--scroll) * 40%); /* monte vers le haut */
@@ -51,4 +58,19 @@ body {
   align-items: center;
   gap: calc(2rem - var(--scroll) * 1.5rem);
   transition: none;
+}
+
+.hero2 {
+  height: 100vh;
+  position: relative;
+}
+
+.titre {
+  position: absolute;
+  top: 25%;
+  left: 33%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: #42382E;
+  font-weight: 100;
 }

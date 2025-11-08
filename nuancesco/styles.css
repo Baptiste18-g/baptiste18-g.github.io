@@ -22,6 +22,21 @@ body {
   height: 100vh;
 }
 
+.cercle {
+  position: absolute;
+}
+
+.positioncercle {
+  width: 55%;
+  height: auto;
+  position: fixed;
+  top: 70%; /* monte vers le haut */
+  left: 80%; /* se décale vers la gauche */
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  transition: none;
+}
 /*.logo-container {
   position: fixed;
   top: calc(50% - var(--scroll) * 45%); /* monte vers le haut */
@@ -68,9 +83,19 @@ body {
 .titre {
   position: absolute;
   top: 25%;
-  left: 33%;
+  left: 25%;
   transform: translate(-50%, -50%);
   font-size: 50px;
   color: #42382E;
   font-weight: 100;
+}
+.paragraphe {
+  position: absolute;
+  top: 55%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: #42382E;
+  font-weight: 100;
+  max-width: 25%;
 }

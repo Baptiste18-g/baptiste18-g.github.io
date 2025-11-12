@@ -30,7 +30,7 @@ body {
   width: 55%;
   height: auto;
   position: fixed;
-  top: 70%; /* monte vers le haut */
+  top: 73%; /* monte vers le haut */
   left: 80%; /* se décale vers la gauche */
   transform: translate(-50%, -50%);
   display: flex;
@@ -95,7 +95,7 @@ body {
   left: 25%;
   transform: translate(-50%, -50%);
   font-size: 30px;
-  color: #42382E;
+  color: #625345;
   font-weight: 100;
   max-width: 25%;
 }

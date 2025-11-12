@@ -1,28 +1,50 @@
-gsap.registerPlugin(ScrollTrigger);
+const canvas = document.getElementById("animation");
+const context = canvas.getContext("2d");
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".hero",
-      start: "top top",
-      end: "bottom top",
-      scrub: true,
-    }
-  });
+// Nombre total de frames
+const frameCount = 120; // à adapter à ton animation
+const images = [];
+let currentFrame = 0;
 
-  tl.to(".logo-container", {
-    top: "5%",
-    left: "5%",
-    xPercent: 0,
-    yPercent: 0,
-    flexDirection: "row",
-    gap: "0.5rem",
-    alignItems: "center",
-    transform: "none",
-    ease: "power2.out"
-  })
-  .to(".logo", {
-    width: 50,
-  }, "<")
-  .to(".brand-name", {
-    fontSize: "1.25rem",
-  }, "<");
+function preloadImages() {
+  for (let i = 1; i <= frameCount; i++) {
+    const img = new Image();
+    img.src = `images/frames/${String(i).padStart(4, '0')}.webp`;
+    images.push(img);
+  }
+}
+
+function updateImage(index) {
+  const img = images[index];
+  if (img.complete) {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+  }
+}
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const maxScrollTop = document.body.scrollHeight - window.innerHeight;
+  const scrollFraction = scrollTop / maxScrollTop;
+  const frameIndex = Math.min(
+    frameCount - 1,
+    Math.floor(scrollFraction * frameCount)
+  );
+
+  if (frameIndex !== currentFrame) {
+    currentFrame = frameIndex;
+    updateImage(currentFrame);
+  }
+});
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  updateImage(currentFrame);
+});
+
+// Démarrage
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+preloadImages();
+images[0].onload = () => updateImage(0);

@@ -15,10 +15,10 @@
     </section>
     
     <section class="hero2">
-        <h1 class="titre">Nom de chandelle 1</h1>
-        <p class="paragraphe">Lorem ipsum dolor sit amet. In veniam autem ab nihil excepturi aut dolor galisum ab expedita voluptas vel optio voluptatibus! Ea rerum provident in internos dicta eos minus adipisci ut voluptatem odio est perferendis voluptatibus nam facere facere ea soluta vitae. Sit neque mollitia ut eaque alias in quas optio ex quia galisum et voluptas asperiores aut ipsum illo. A ullam mollitia aut quos officiis aut maxime numquam sed galisum animi ea itaque autem sit nihil facilis.
-
-</p>
+        <div class="hero2-fixed">
+            <h1 class="titre">Nom de chandelle 1</h1>
+            <p class="paragraphe">Lorem ipsum dolor sit amet. In veniam autem ab nihil excepturi aut dolor galisum ab expedita voluptas vel optio voluptatibus! Ea rerum provident in internos dicta eos minus adipisci ut voluptatem odio est perferendis voluptatibus nam facere facere ea soluta vitae. Sit neque mollitia ut eaque alias in quas optio ex quia galisum et voluptas asperiores aut ipsum illo. A ullam mollitia aut quos officiis aut maxime numquam sed galisum animi ea itaque autem sit nihil facilis.</p>
+        </div>
     </section>
     <section>
         <div class="cercle">
@@ -29,15 +29,39 @@
 <script>
 window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY;
-  const docHeight = window.innerHeight;
-  
-  // crée une valeur entre 0 et 1 selon la progression dans le 1er écran
-  let progress = Math.min(Math.max(scrollTop / docHeight, 0), 1);
-  
-  // met à jour la variable CSS
-  document.documentElement.style.setProperty("--scroll", progress);
+  const vh = window.innerHeight;
+
+  // Animations du premier écran
+  let scroll1 = Math.min(Math.max(scrollTop / vh, 0), 1);
+  document.documentElement.style.setProperty("--scroll", scroll1);
+
+  // Animations du deuxième écran (entre 100vh et 200vh)
+  let scroll2 = Math.min(Math.max((scrollTop - vh) / vh, 0), 1);
+  document.documentElement.style.setProperty("--scroll2", scroll2);
+
+  // Animations du troisième écran (entre 200vh et 300vh)
+  let scroll3 = Math.min(Math.max((scrollTop - 2 * vh) / vh, 0), 1);
+  document.documentElement.style.setProperty("--scroll3", scroll3);
 });
+
 </script>
+<script>
+const section = document.querySelector('.hero2');
+const elements = document.querySelectorAll('.titre, .paragraphe');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      elements.forEach(el => el.classList.add('show-fixed'));
+    } else {
+      elements.forEach(el => el.classList.remove('show-fixed'));
+    }
+  });
+}, { threshold: 0.95 });
+
+observer.observe(section);
+</script>
+
 <script src="script.js"></script>
 </body>
 

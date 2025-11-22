@@ -1,3 +1,6 @@
+:root {
+  --scroll: 0; /* valeur entre 0 et 1 */
+}
 @font-face {
   font-family: 'Lobster Two';
   src: url('./fonts/lobstertworegular.ttf') format('truetype');
@@ -24,4 +27,80 @@ body {
   display: flex;
   align-items: center;
   transition: none;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  position: fixed;
+  top: clamp(5%, calc(25% - var(--scroll) * 18%), 25%); /* monte vers le haut */
+  left: clamp(10%, calc(50% - var(--scroll) * 40%), 50%); /* se décale vers la gauche */
+  transform: translate(-50%, -50%) scale(calc(1 - var(--scroll) * 0.6));
+  display: flex;
+  align-items: center;
+  gap: calc(2rem - var(--scroll) * 1.5rem);
+  transition: none;
+}
+
+.brand-name {
+  width: auto;
+  height: 40px;
+  position: fixed;
+  opacity: calc(100% - var(--scroll) * 100%);
+  top: calc(42% - var(--scroll) * 20%); /* monte vers le haut */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: calc(2rem - var(--scroll) * 1.5rem);
+  transition: none;
+}
+
+.hero {
+  height: 100vh;
+}
+
+.hero2 {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.hero2-fixed {
+  position: fixed;
+  top: 15%;
+  left: 0%;
+  width: 100%;
+}
+/* États initiaux (invisibles) */
+.titre,
+.paragraphe {
+  opacity: 0;
+  transform: translateY(20px); /* petite translation vers le bas */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  color: #42382E;
+  font-weight: 100;
+}
+
+/* Positionnement original */
+.titre {
+  max-width: 81%;
+  font-size: 50px;
+  color: #42382E;
+  margin: 0%;
+  padding-left: 9%;
+  padding-right: 10%;
+}
+
+.paragraphe {
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 20px;
+  color: #625345;
+  max-width: 80%;
+}
+
+/* Quand la section est visible à +50% */
+.show-fixed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }

@@ -16,11 +16,33 @@ function preloadImages() {
 
 function updateImage(index) {
   const img = images[index];
-  if (img.complete) {
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+  if (!img.complete) return;
+
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Ratio de l’image
+  const imgRatio = img.width / img.height;
+  const canvasRatio = canvas.width / canvas.height;
+
+  let renderWidth, renderHeight, offsetX, offsetY;
+
+  if (canvasRatio > imgRatio) {
+    // Canvas plus large → ajuster la hauteur
+    renderHeight = canvas.height;
+    renderWidth = renderHeight * imgRatio;
+    offsetX = (canvas.width - renderWidth) / 2;
+    offsetY = 0;
+  } else {
+    // Canvas plus haut → ajuster la largeur
+    renderWidth = canvas.width;
+    renderHeight = renderWidth / imgRatio;
+    offsetX = 0;
+    offsetY = (canvas.height - renderHeight) / 2;
   }
+
+  context.drawImage(img, offsetX, offsetY, renderWidth, renderHeight);
 }
+
 
 window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY;

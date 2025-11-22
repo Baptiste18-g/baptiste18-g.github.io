@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Lobster Two';
+  src: url('./fonts/lobstertworegular.ttf') format('truetype');
+  font-weight: 100;
+}
+
+body {
+  background-color: #D7B675;
+  background-image: url("fond.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 200vh;
+  font-family: 'Lobster Two';
+}
+
+.positioncercle {
+  width: 95%;
+  height: auto;
+  position: fixed;
+  top: 73%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  transition: none;
+}

@@ -6,7 +6,7 @@
 
 body {
   background-color: #D7B675;
-  background-image: url("fond.svg");
+  background-image: url("fond2.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -18,7 +18,7 @@ body {
   width: 95%;
   height: auto;
   position: fixed;
-  top: 73%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;

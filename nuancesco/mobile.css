@@ -30,12 +30,12 @@ body {
 }
 
 .logo {
-  width: 200px;
+  width: 150px;
   height: auto;
   position: fixed;
   top: clamp(5%, calc(25% - var(--scroll) * 18%), 25%); /* monte vers le haut */
   left: clamp(10%, calc(50% - var(--scroll) * 40%), 50%); /* se décale vers la gauche */
-  transform: translate(-50%, -50%) scale(calc(1 - var(--scroll) * 0.6));
+  transform: translate(-50%, -50%) scale(calc(1 - var(--scroll) * 0.4));
   display: flex;
   align-items: center;
   gap: calc(2rem - var(--scroll) * 1.5rem);
@@ -44,7 +44,7 @@ body {
 
 .brand-name {
   width: auto;
-  height: 40px;
+  height: 30px;
   position: fixed;
   opacity: calc(100% - var(--scroll) * 100%);
   top: calc(42% - var(--scroll) * 20%); /* monte vers le haut */
@@ -84,7 +84,7 @@ body {
 /* Positionnement original */
 .titre {
   max-width: 81%;
-  font-size: 50px;
+  font-size: 30px;
   color: #42382E;
   margin: 0%;
   padding-left: 9%;
@@ -94,7 +94,7 @@ body {
 .paragraphe {
   padding-left: 10%;
   padding-right: 10%;
-  font-size: 20px;
+  font-size: 16px;
   color: #625345;
   max-width: 80%;
 }

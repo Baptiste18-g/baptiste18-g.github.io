@@ -57,7 +57,7 @@ const observer = new IntersectionObserver((entries) => {
       elements.forEach(el => el.classList.remove('show-fixed'));
     }
   });
-}, { threshold: 0.95 });
+}, { threshold: 0.75 });
 
 observer.observe(section);
 </script>

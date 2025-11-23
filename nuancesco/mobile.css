@@ -85,7 +85,6 @@ body {
   color: #42382E;
   font-weight: 100;
 }
-
 /* Positionnement original */
 .titre {
   max-width: 81%;
@@ -108,4 +107,59 @@ body {
 .show-fixed {
   opacity: 1 !important;
   transform: translateY(0) !important;
+}
+
+
+/* Container horizontal */
+.product-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(20px); /* petite translation vers le bas */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Prix */
+.price {
+  background: linear-gradient(180deg, #f3ecd3, #e6d9b6);
+  padding: 8px 13px;
+  border-radius: 40px;
+  font-size: 16px;
+  color: #4b3b30;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Bouton ajouter */
+.add-to-cart {
+  background: linear-gradient(180deg, #f3ecd3, #e6d9b6);
+  padding: 8px 15px;
+  border-radius: 40px;
+  border: none;
+  font-size: 16px;
+  color: #4b3b30;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.15s ease;
+  font-family: 'Lobster Two';
+}
+
+/* Petit + */
+.add-to-cart .icon {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/* Hover (desktop) */
+.add-to-cart:hover {
+  transform: scale(1.03);
+}
+
+/* Optionnel : effet click */
+.add-to-cart:active {
+  transform: scale(0.97);
 }

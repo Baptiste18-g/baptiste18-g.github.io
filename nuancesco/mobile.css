@@ -30,11 +30,11 @@ body {
 }
 
 .logo {
-  width: 150px;
+  width: 120px;
   height: auto;
   position: fixed;
-  top: clamp(5%, calc(25% - var(--scroll) * 18%), 25%); /* monte vers le haut */
-  left: clamp(10%, calc(50% - var(--scroll) * 40%), 50%); /* se décale vers la gauche */
+  top: clamp(10%, calc(25% - var(--scroll) * 18%), 25%); /* monte vers le haut */
+  left: clamp(15%, calc(50% - var(--scroll) * 40%), 50%); /* se décale vers la gauche */
   transform: translate(-50%, -50%) scale(calc(1 - var(--scroll) * 0.6));
   display: flex;
   align-items: center;
@@ -47,7 +47,7 @@ body {
   height: 30px;
   position: fixed;
   opacity: calc(100% - var(--scroll) * 100%);
-  top: calc(42% - var(--scroll) * 20%); /* monte vers le haut */
+  top: calc(45% - var(--scroll) * 20%); /* monte vers le haut */
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;

@@ -123,8 +123,11 @@ body {
 
 /* Prix */
 .price {
-  background: linear-gradient(180deg, #f3ecd3, #e6d9b6);
-  padding: 8px 13px;
+  background: rgba(255, 255, 255, 0.60); /* semi-transparent */
+  backdrop-filter: blur(10px);           /* frosted blur */
+  -webkit-backdrop-filter: blur(10px);   /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 13px;
   border-radius: 40px;
   font-size: 16px;
   color: #4b3b30;
@@ -133,10 +136,12 @@ body {
 
 /* Bouton ajouter */
 .add-to-cart {
-  background: linear-gradient(180deg, #f3ecd3, #e6d9b6);
-  padding: 8px 15px;
+  background: rgba(255, 255, 255, 0.60); /* semi-transparent */
+  backdrop-filter: blur(10px);           /* frosted blur */
+  -webkit-backdrop-filter: blur(10px);   /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 15px;
   border-radius: 40px;
-  border: none;
   font-size: 16px;
   color: #4b3b30;
   display: flex;

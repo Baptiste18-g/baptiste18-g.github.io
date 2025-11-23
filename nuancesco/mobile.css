@@ -35,7 +35,7 @@ body {
   position: fixed;
   top: clamp(5%, calc(25% - var(--scroll) * 18%), 25%); /* monte vers le haut */
   left: clamp(10%, calc(50% - var(--scroll) * 40%), 50%); /* se décale vers la gauche */
-  transform: translate(-50%, -50%) scale(calc(1 - var(--scroll) * 0.4));
+  transform: translate(-50%, -50%) scale(calc(1 - var(--scroll) * 0.6));
   display: flex;
   align-items: center;
   gap: calc(2rem - var(--scroll) * 1.5rem);

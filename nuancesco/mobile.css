@@ -181,23 +181,11 @@ body {
   gap: 12px;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.15s ease;
   font-family: 'Lobster Two';
 }
 
-/* Petit + */
 .add-to-cart .icon {
   width: 16px;
   height: auto;
   transform: translateY(10%);
-}
-
-/* Hover (desktop) */
-.add-to-cart:hover {
-  transform: scale(1.03);
-}
-
-/* Optionnel : effet click */
-.add-to-cart:active {
-  transform: scale(0.97);
 }

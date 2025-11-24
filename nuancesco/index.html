@@ -12,6 +12,14 @@
         <div class="logo-container">
             <img src="logobrun.svg" alt="Logo" class="logo">
             <img src="textlogobrun.svg" class="brand-name">
+            <div class="menu">
+                <button id="">
+                    <img src="menubar.svg">
+                </button>
+                <button id="">
+                    <img src="bag.svg">
+                </button>
+            </div>
         </div>
     </section>
     
@@ -22,12 +30,10 @@
             <div class="product-actions">
                 <div class="price">9,99$</div>
 
-                <div class="add-to-cart">
+                <button class="add-to-cart" id="cart-btn">
                     Ajouter au panier
-                    <span class="icon" id="plus-btn"><img src="plus.svg"></span>
-                    <span id="counter" class="counter hidden">0</span>
-                    <span id="minus-btn" class="icon hidden"><img src="minus.svg"></span>
-                </div>
+                    <span class="icon"><img src="plus.svg"></span>
+                </button>
             </div>
         </div>
     </section>
@@ -74,46 +80,36 @@ observer.observe(section);
 </script>
 <script>
 const root = document.documentElement;
-const plusBtn = document.getElementById("plus-btn");
-const minusBtn = document.getElementById("minus-btn");
-const counter = document.getElementById("counter");
+const btn = document.getElementById("cart-btn");
 
-// Fonction pour mettre à jour l'affichage
-function updateDisplay() {
+function updateButton() {
     let value = parseInt(getComputedStyle(root).getPropertyValue("--ma-variable"));
 
-    // Mettre à jour le texte
-    counter.textContent = value;
-
-    // Afficher / cacher le compteur et le bouton moins
     if (value > 0) {
-        counter.classList.remove("hidden");
-        minusBtn.classList.remove("hidden");
+        btn.innerHTML = 'Retirer du panier <span class="icon"><img src="minus.svg"></span>';
     } else {
-        counter.classList.add("hidden");
-        minusBtn.classList.add("hidden");
+        btn.innerHTML = 'Ajouter au panier <span class="icon"><img src="plus.svg"></span>';
     }
 }
 
-// --- BTN PLUS ---
-plusBtn.addEventListener("click", () => {
+// Clic sur le bouton
+btn.addEventListener("click", () => {
     let value = parseInt(getComputedStyle(root).getPropertyValue("--ma-variable"));
-    value = Math.max(0, value + 1);
-    root.style.setProperty("--ma-variable", value);
-    updateDisplay();
-});
 
-// --- BTN MOINS ---
-minusBtn.addEventListener("click", () => {
-    let value = parseInt(getComputedStyle(root).getPropertyValue("--ma-variable"));
-    value = Math.max(0, value - 1); // jamais moins de 0
+    if (value === 0) {
+        value = 1; // ajoute au panier
+    } else {
+        value = 0; // retire du panier
+    }
+
     root.style.setProperty("--ma-variable", value);
-    updateDisplay();
+    updateButton();
 });
 
 // Initialisation
-updateDisplay();
+updateButton();
 </script>
+
 
 <script src="script.js"></script>
 </body>

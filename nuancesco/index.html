@@ -24,7 +24,9 @@
 
                 <div class="add-to-cart">
                     Ajouter au panier
-                    <span class="icon">+</span>
+                    <span class="icon" id="plus-btn"><img src="plus.svg"></span>
+                    <span id="counter" class="counter hidden">0</span>
+                    <span id="minus-btn" class="icon hidden"><img src="minus.svg"></span>
                 </div>
             </div>
         </div>
@@ -69,6 +71,48 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.75 });
 
 observer.observe(section);
+</script>
+<script>
+const root = document.documentElement;
+const plusBtn = document.getElementById("plus-btn");
+const minusBtn = document.getElementById("minus-btn");
+const counter = document.getElementById("counter");
+
+// Fonction pour mettre à jour l'affichage
+function updateDisplay() {
+    let value = parseInt(getComputedStyle(root).getPropertyValue("--ma-variable"));
+
+    // Mettre à jour le texte
+    counter.textContent = value;
+
+    // Afficher / cacher le compteur et le bouton moins
+    if (value > 0) {
+        counter.classList.remove("hidden");
+        minusBtn.classList.remove("hidden");
+    } else {
+        counter.classList.add("hidden");
+        minusBtn.classList.add("hidden");
+    }
+}
+
+// --- BTN PLUS ---
+plusBtn.addEventListener("click", () => {
+    let value = parseInt(getComputedStyle(root).getPropertyValue("--ma-variable"));
+    value = Math.max(0, value + 1);
+    root.style.setProperty("--ma-variable", value);
+    updateDisplay();
+});
+
+// --- BTN MOINS ---
+minusBtn.addEventListener("click", () => {
+    let value = parseInt(getComputedStyle(root).getPropertyValue("--ma-variable"));
+    value = Math.max(0, value - 1); // jamais moins de 0
+    root.style.setProperty("--ma-variable", value);
+    updateDisplay();
+});
+
+// Initialisation
+updateDisplay();
 </script>
 
 <script src="script.js"></script>

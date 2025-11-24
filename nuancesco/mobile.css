@@ -1,6 +1,9 @@
 :root {
   --scroll: 0; /* valeur entre 0 et 1 */
 }
+:root {
+  --ma-variable: 0;
+}
 @font-face {
   font-family: 'Lobster Two';
   src: url('./fonts/lobstertworegular.ttf') format('truetype');
@@ -72,7 +75,7 @@ body {
 }
 .hero2-fixed {
   position: fixed;
-  top: 15%;
+  top: 18%;
   left: 0%;
   width: 100%;
 }
@@ -123,7 +126,7 @@ body {
 
 /* Prix */
 .price {
-  background: rgba(255, 255, 255, 0.60); /* semi-transparent */
+  background: rgba(255, 255, 255, 0.55); /* semi-transparent */
   backdrop-filter: blur(10px);           /* frosted blur */
   -webkit-backdrop-filter: blur(10px);   /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -136,7 +139,7 @@ body {
 
 /* Bouton ajouter */
 .add-to-cart {
-  background: rgba(255, 255, 255, 0.60); /* semi-transparent */
+  background: rgba(255, 255, 255, 0.55); /* semi-transparent */
   backdrop-filter: blur(10px);           /* frosted blur */
   -webkit-backdrop-filter: blur(10px);   /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -155,8 +158,9 @@ body {
 
 /* Petit + */
 .add-to-cart .icon {
-  font-size: 16px;
-  font-weight: 300;
+  width: 16px;
+  height: auto;
+  transform: translateY(10%);
 }
 
 /* Hover (desktop) */
@@ -167,4 +171,8 @@ body {
 /* Optionnel : effet click */
 .add-to-cart:active {
   transform: scale(0.97);
+}
+
+.hidden {
+  display: none;
 }

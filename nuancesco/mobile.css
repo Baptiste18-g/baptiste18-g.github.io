@@ -24,6 +24,7 @@ body {
   background-size: cover;
   background-position: center;
   z-index: -1;
+  pointer-events: none;
 }
 .positioncercle {
   width: 95%;
@@ -35,6 +36,8 @@ body {
   display: flex;
   align-items: center;
   transition: none;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .logo {
@@ -80,6 +83,7 @@ body {
   align-items: center;
   display: flex;
   opacity: calc(0% + var(--scroll) * 100%);
+  z-index: 9999;
 }
 
 .menu button {
@@ -168,7 +172,6 @@ body {
 
 /* Bouton ajouter */
 .add-to-cart {
-  min-height: 44px;
   background: rgba(255, 255, 255, 0.55); /* semi-transparent */
   backdrop-filter: blur(10px);           /* frosted blur */
   -webkit-backdrop-filter: blur(10px);   /* Safari support */
@@ -183,7 +186,6 @@ body {
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   font-family: 'Lobster Two';
-  z-index: 9999;
 }
 
 .add-to-cart .icon {

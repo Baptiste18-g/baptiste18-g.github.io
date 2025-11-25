@@ -1,9 +1,8 @@
 :root {
   --scroll: 0; /* valeur entre 0 et 1 */
-}
-:root {
   --ma-variable: 0;
 }
+
 @font-face {
   font-family: 'Lobster Two';
   src: url('./fonts/lobstertworegular.ttf') format('truetype');
@@ -105,28 +104,40 @@ body {
   position: relative;
 }
 
+.hero3 {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
 .hero2-fixed {
   position: fixed;
   top: 18%;
   left: 0%;
   width: 100%;
-}
-
-/* États initiaux (invisibles) */
-.titre,
-.paragraphe {
   opacity: 0;
   transform: translateY(20px); /* petite translation vers le bas */
   transition: opacity 0.3s ease, transform 0.3s ease;
-  color: #42382E;
-  font-weight: 100;
+  --couleur1: #42382E;
+  --couleur2: #625345;
+}
+.hero3-fixed {
+  position: fixed;
+  top: 18%;
+  left: 0%;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px); /* petite translation vers le bas */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  --couleur1: #3C4441;
+  --couleur2: #42504A;
 }
 
 /* Positionnement original */
 .titre {
   max-width: 81%;
   font-size: 30px;
-  color: #42382E;
+  color: var(--couleur1);
   margin: 0%;
   padding-left: 9%;
   padding-right: 10%;
@@ -136,11 +147,10 @@ body {
   padding-left: 10%;
   padding-right: 10%;
   font-size: 16px;
-  color: #625345;
+  color: var(--couleur2);
   max-width: 80%;
 }
 
-/* Quand la section est visible à +50% */
 .show-fixed {
   opacity: 1 !important;
   transform: translateY(0) !important;
@@ -152,9 +162,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  opacity: 0;
-  transform: translateY(20px); /* petite translation vers le bas */
-  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* Prix */
@@ -166,7 +173,7 @@ body {
   padding: 6px 13px;
   border-radius: 40px;
   font-size: 16px;
-  color: #4b3b30;
+  color: var(--couleur1);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -179,7 +186,7 @@ body {
   padding: 6px 15px;
   border-radius: 40px;
   font-size: 16px;
-  color: #4b3b30;
+  color: var(--couleur1);
   display: flex;
   align-items: center;
   gap: 12px;

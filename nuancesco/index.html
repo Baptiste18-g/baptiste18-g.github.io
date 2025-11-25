@@ -37,6 +37,22 @@
             </div>
         </div>
     </section>
+
+    <section class="hero3">
+        <div class="hero3-fixed">
+            <h1 class="titre">Nom de chandelle 2</h1>
+            <p class="paragraphe">Lorem ipsum dolor sit amet. In veniam autem ab nihil excepturi aut dolor galisum ab expedita voluptas vel optio voluptatibus! Ea rerum provident in internos dicta eos minus adipisci ut voluptatem odio est perferendis voluptatibus nam facere facere ea soluta vitae.</p>
+            <div class="product-actions">
+                <div class="price">11,99$</div>
+
+                <button class="add-to-cart" id="cart-btn">
+                    Ajouter au panier
+                    <span class="icon"><img src="plus.svg"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+    
     <section>
         <div class="cercle">
             <img src="cercle.svg" class="positioncercle">
@@ -62,9 +78,12 @@ window.addEventListener("scroll", () => {
 });
 
 </script>
+
+
+
 <script>
 const section = document.querySelector('.hero2');
-const elements = document.querySelectorAll('.titre, .paragraphe, .product-actions');
+const elements = document.querySelectorAll('.hero2-fixed');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -78,6 +97,24 @@ const observer = new IntersectionObserver((entries) => {
 
 observer.observe(section);
 </script>
+<script>
+const section3 = document.querySelector('.hero3');
+const elements3 = document.querySelectorAll('.hero3-fixed');
+
+const observer3 = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      elements3.forEach(el => el.classList.add('show-fixed'));
+    } else {
+      elements3.forEach(el => el.classList.remove('show-fixed'));
+    }
+  });
+}, { threshold: 0.65 });
+
+observer3.observe(section3);
+</script>
+
+
 <script>
 const root = document.documentElement;
 const btn = document.getElementById("cart-btn");

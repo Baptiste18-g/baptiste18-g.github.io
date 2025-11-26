@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuances & Co</title>
     <link rel="stylesheet" href="desktop.css" media="(min-width: 1024px)">
     <link rel="stylesheet" href="mobile.css" media="(max-width: 1023px)">
 </head>
@@ -21,6 +22,9 @@
                 </button>
             </div>
         </div>
+        <div class="hero-fixed-img">
+            <img src="illustration-temp.webp" class="positioncercle">
+        </div>
     </section>
     
     <section class="hero2">
@@ -35,6 +39,10 @@
                     <span class="icon"><img src="plus.svg"></span>
                 </button>
             </div>
+        </div>
+        <div class="hero2-fixed-img">
+            <img src="illustration-temp2.webp" class="positioncercle">
+            <p class="labelcercle">&Eacutedition limitée !</p>
         </div>
     </section>
 
@@ -52,11 +60,16 @@
                 </button>
             </div>
         </div>
+        <div class="hero3-fixed-img">
+            <img src="illustration-temp.webp" class="positioncercle">
+            <p class="labelcercle">&Eacutedition limitée !</p>
+        </div>
     </section>
     
     <section>
         <div class="cercle">
-            <img src="illustration-temp.webp" class="positioncercle">
+            <!--<img src="illustration-temp.webp" class="positioncercle">
+            <p class="labelcercle">&Eacutedition limitée !</p>-->
             <!-- <canvas id="animation" class="positioncercle"></canvas> -->
         </div>
     </section>
@@ -85,6 +98,7 @@ window.addEventListener("scroll", () => {
 <script>
 const section = document.querySelector('.hero2');
 const elements = document.querySelectorAll('.hero2-fixed');
+const elements2img = document.querySelectorAll('.hero2-fixed-img');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -96,11 +110,23 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.75 });
 
+const observer2img = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      elements2img.forEach(el => el.classList.add('show-fixed'));
+    } else {
+      elements2img.forEach(el => el.classList.remove('show-fixed'));
+    }
+  });
+}, { threshold: 0.5 });
+
 observer.observe(section);
+observer2img.observe(section);
 </script>
 <script>
 const section3 = document.querySelector('.hero3');
 const elements3 = document.querySelectorAll('.hero3-fixed');
+const elements3img = document.querySelectorAll('.hero3-fixed-img');
 
 const observer3 = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -112,7 +138,18 @@ const observer3 = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.65 });
 
+const observer3img = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      elements3img.forEach(el => el.classList.add('show-fixed'));
+    } else {
+      elements3img.forEach(el => el.classList.remove('show-fixed'));
+    }
+  });
+}, { threshold: 0.5 });
+
 observer3.observe(section3);
+observer3img.observe(section3);
 </script>
 
 

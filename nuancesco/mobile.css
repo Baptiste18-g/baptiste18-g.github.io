@@ -23,12 +23,30 @@ body {
   background-image: url("fond2.svg");
   background-size: cover;
   background-position: center;
-  z-index: -1;
+  z-index: -10;
   pointer-events: none;
 }
 
-.cercle {
-
+.labelcercle {
+  position: fixed;
+  top: 62%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  transition: none;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(255, 0, 0, 0.45); /* semi-transparent */
+  backdrop-filter: blur(10px);           /* frosted blur */
+  -webkit-backdrop-filter: blur(10px);   /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 13px;
+  border-radius: 40px;
+  font-size: 2.2vh;
+  color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  white-space: nowrap;
 }
 
 .positioncercle {
@@ -41,10 +59,37 @@ body {
   display: flex;
   align-items: center;
   transition: none;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
   object-fit: cover;
   border-radius: 50%;
+}
+.hero-fixed-img {
+  opacity: 1;
+  position: fixed;
+  top:0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+}
+.hero2-fixed-img {
+  opacity: 0;
+  position: fixed;
+  top:0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease;
+}
+.hero3-fixed-img {
+  opacity: 0;
+  position: fixed;
+  top:0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease;
 }
 
 .logo {
@@ -154,7 +199,7 @@ body {
 .paragraphe {
   padding-left: 10%;
   padding-right: 10%;
-  font-size: 16px;
+  font-size: 2.2vh;
   color: var(--couleur2);
   max-width: 80%;
 }
@@ -180,7 +225,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 6px 13px;
   border-radius: 40px;
-  font-size: 16px;
+  font-size: 2.2vh;
   color: var(--couleur1);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -193,7 +238,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 6px 15px;
   border-radius: 40px;
-  font-size: 16px;
+  font-size: 2.2vh;
   color: var(--couleur1);
   display: flex;
   align-items: center;
@@ -204,7 +249,7 @@ body {
 }
 
 .add-to-cart .icon {
-  width: 16px;
+  width: 2.2vh;
   height: auto;
   transform: translateY(10%);
 }

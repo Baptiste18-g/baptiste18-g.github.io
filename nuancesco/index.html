@@ -17,7 +17,7 @@
                 <button id="">
                     <img src="menubar.svg">
                 </button>
-                <button id="">
+                <button id="toggle-cart">
                     <img src="bag.svg">
                 </button>
             </div>
@@ -31,10 +31,10 @@
         <div class="hero2-fixed">
             <h1 class="titre">Nom de chandelle 1</h1>
             <p class="paragraphe">Lorem ipsum dolor sit amet. In veniam autem ab nihil excepturi aut dolor galisum ab expedita voluptas vel optio voluptatibus! Ea rerum provident in internos dicta eos minus adipisci ut voluptatem odio est perferendis voluptatibus nam facere facere ea soluta vitae.</p>
-            <div class="product-actions">
+            <div class="product-actions" id="product-actionsid">
                 <div class="price">9,99$</div>
 
-                <button class="add-to-cart" id="cart-btn">
+                <button class="add-to-cart" data-variant-id="gid://shopify/ProductVariant/47354897891584">
                     Ajouter au panier
                     <span class="icon"><img src="plus.svg"></span>
                 </button>
@@ -51,10 +51,10 @@
             <h1 class="titre">Brise Boréale</h1>
             <p class="paragraphe">La chaleur du genévrier et du sapin s’entrelace à une sève douce, laissant dans son sillage un souffle pur et apaisant. En quelques instants, l’ambiance se transforme : votre pièce respire la forêt, pleine d’énergie et d’harmonie.
 <br>Édition hivernale en série limitée, jusqu’à épuisement des stocks.</p>
-            <div class="product-actions">
+            <div class="product-actions" id="product-actionsid2">
                 <div class="price">12,99$</div>
 
-                <button class="add-to-cart" id="cart-btn">
+                <button class="add-to-cart" data-variant-id="gid://shopify/ProductVariant/47341448757504">
                     Ajouter au panier
                     <span class="icon"><img src="plus.svg"></span>
                 </button>
@@ -66,13 +66,18 @@
         </div>
     </section>
     
+
+
     <section>
-        <div class="cercle">
-            <!--<img src="illustration-temp.webp" class="positioncercle">
-            <p class="labelcercle">&Eacutedition limitée !</p>-->
-            <!-- <canvas id="animation" class="positioncercle"></canvas> -->
+        <div id="cart" class="hidden">
+            <p>Panier : <span id="cart-count">0</span> article(s)</p>
+            <div id="cart-lines"></div>
+            <button id="checkout" class="btn">Payer</button>
         </div>
     </section>
+
+
+
 <script>
 window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY;
@@ -95,6 +100,8 @@ window.addEventListener("scroll", () => {
 
 
 
+
+
 <script>
 const section = document.querySelector('.hero2');
 const elements = document.querySelectorAll('.hero2-fixed');
@@ -104,8 +111,12 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       elements.forEach(el => el.classList.add('show-fixed'));
+      document.getElementById("cart").classList.add("hidden");
+      section.classList.add("nocolision");
     } else {
       elements.forEach(el => el.classList.remove('show-fixed'));
+      document.getElementById("cart").classList.add("hidden");
+      section.classList.remove("nocolision");
     }
   });
 }, { threshold: 0.75 });
@@ -132,8 +143,12 @@ const observer3 = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       elements3.forEach(el => el.classList.add('show-fixed'));
+      document.getElementById("cart").classList.add("hidden");
+      section3.classList.add("nocolision");
     } else {
       elements3.forEach(el => el.classList.remove('show-fixed'));
+      document.getElementById("cart").classList.add("hidden");
+      section3.classList.remove("nocolision");
     }
   });
 }, { threshold: 0.65 });
@@ -151,41 +166,13 @@ const observer3img = new IntersectionObserver((entries) => {
 observer3.observe(section3);
 observer3img.observe(section3);
 </script>
-
-
 <script>
-const root = document.documentElement;
-const btn = document.getElementById("cart-btn");
-
-function updateButton() {
-    let value = parseInt(getComputedStyle(root).getPropertyValue("--ma-variable"));
-
-    if (value > 0) {
-        btn.innerHTML = 'Retirer du panier <span class="icon"><img src="minus.svg"></span>';
-    } else {
-        btn.innerHTML = 'Ajouter au panier <span class="icon"><img src="plus.svg"></span>';
-    }
-}
-
-// Clic sur le bouton
-btn.addEventListener("click", () => {
-    let value = parseInt(getComputedStyle(root).getPropertyValue("--ma-variable"));
-
-    if (value === 0) {
-        value = 1; // ajoute au panier
-    } else {
-        value = 0; // retire du panier
-    }
-
-    root.style.setProperty("--ma-variable", value);
-    updateButton();
+document.getElementById("toggle-cart").addEventListener("click", () => {
+  document.getElementById("cart").classList.toggle("hidden");
 });
-
-// Initialisation
-updateButton();
 </script>
 
+
 <script src="shopify.js"></script>
-<script src="script.js"></script>
 </body>
 

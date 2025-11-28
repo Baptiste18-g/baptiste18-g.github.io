@@ -169,38 +169,142 @@ async function getCart(cartIdParam) {
 
 // ---------- afficher le panier dans la page ----------
 function renderCartFromCartObject(cartObj) {
-    if (!cartObj) return;
-    
-    const edges = (cartObj.lines && cartObj.lines.edges) || [];
-    const count = edges.reduce((s, e) => s + (e.node.quantity || 0), 0);
-    document.getElementById('cart-count').innerText = count;
+  if (!cartObj) return;
 
-    const linesContainer = document.getElementById('cart-lines');
-    linesContainer.innerHTML = "";
-    if (edges.length === 0) {
+  const edges = (cartObj.lines && cartObj.lines.edges) || [];
+  const count = edges.reduce((s, e) => s + (e.node.quantity || 0), 0);
+  document.getElementById('cart-count').innerText = count;
+
+  const linesContainer = document.getElementById('cart-lines');
+  linesContainer.innerHTML = "";
+
+  if (edges.length === 0) {
     linesContainer.innerHTML = "<p>Panier vide</p>";
     return;
+  }
+
+  let cartTotal = 0;
+  let detectedCurrency = "";
+
+  edges.forEach(edge => {
+    const node = edge.node || {};
+    const variant = node.merchandise || {}; // sécurité si merchandise manquant
+
+    // titre (sûr)
+    const title = (variant.product && variant.product.title) || variant.title || "Produit";
+
+    // récupère le prix unitaire (sécurisé)
+    let unitAmountStr = null;
+    let currency = "";
+    if (variant.price && variant.price.amount) {
+      unitAmountStr = variant.price.amount;
+      currency = variant.price.currencyCode || "";
+    } else if (variant.priceV2 && variant.priceV2.amount) {
+      unitAmountStr = variant.priceV2.amount;
+      currency = variant.priceV2.currencyCode || "";
     }
-    edges.forEach(edge => {
-    const node = edge.node;
-    const variant = node.merchandise;
-    const title = variant.product ? variant.product.title : (variant.title || "Produit");
-    const price = variant.price ? `${variant.price.amount} ${variant.price.currencyCode}` : "";
-    const div = document.createElement('div');
-    div.style.marginBottom = "6px";
-    div.innerHTML = `<strong>${title}</strong> — ${price} × ${node.quantity}`;
-    linesContainer.appendChild(div);
-    // à l'intérieur de edges.forEach(edge => { ... })
+
+    // parseFloat et fallback
+    const unitAmount = unitAmountStr ? parseFloat(unitAmountStr) : 0;
+    const qty = node.quantity || 0;
+    const lineTotal = (isNaN(unitAmount) ? 0 : unitAmount) * qty;
+
+    // garder la première currency détectée pour affichage global
+    if (!detectedCurrency && currency) detectedCurrency = currency;
+
+    // texte prix unitaire et sous-total
+    const unitText = unitAmountStr ? `${unitAmount.toFixed(2)} ${currency}` : "Prix indisponible";
+    const lineTotalText = `${lineTotal.toFixed(2)} ${currency || detectedCurrency || ""}`.trim();
+
+    // ajouter au total du panier
+    cartTotal += isFinite(lineTotal) ? lineTotal : 0;
+
+    // construire l'élément DOM de la ligne
+    const lineDiv = document.createElement('div');
+    lineDiv.classList.add("elementpanier");
+    lineDiv.style.display = "flex";
+    lineDiv.style.justifyContent = "space-between";
+    lineDiv.style.alignItems = "center";
+    lineDiv.style.marginBottom = "10px";
+
+    // gauche : titre
+    const left = document.createElement('div');
+    left.innerHTML = `<p style="margin:0;">${title}</p><small style="color:#666">${unitText}</small>`;
+
+    // droite : - qty + price
+    const right = document.createElement('div');
+    right.style.display = "flex";
+    right.style.alignItems = "center";
+    right.style.gap = "8px";
+
+    // bouton -
     const decBtn = document.createElement('button');
+    decBtn.type = "button";
     decBtn.textContent = "-";
     decBtn.className = "btn";
-    decBtn.style.marginRight = "6px";
     decBtn.addEventListener('click', () => {
-    decreaseCartLine(node.id, 1).catch(err => console.error(err));
+      decreaseCartLine(node.id, 1).catch(err => console.error(err));
     });
-    div.prepend(decBtn);
+
+    // qty
+    const qtySpan = document.createElement('span');
+    qtySpan.textContent = qty;
+    qtySpan.style.minWidth = "28px";
+    qtySpan.style.textAlign = "center";
+
+    // bouton + (utilise addToCart)
+    const incBtn = document.createElement('button');
+    incBtn.type = "button";
+    incBtn.textContent = "+";
+    incBtn.className = "btn";
+    incBtn.addEventListener('click', () => {
+      const variantId = variant.id;
+      if (!variantId) {
+        console.error("variant id introuvable pour cette ligne:", node);
+        return;
+      }
+      addToCart(variantId, 1)
+        .then(async () => {
+          const freshCart = await getCart(cartId);
+          if (freshCart) renderCartFromCartObject(freshCart);
+        })
+        .catch(err => {
+          console.error("Erreur addToCart depuis bouton + :", err);
+          alert("Impossible d'ajouter l'article (voir console).");
+        });
     });
+
+    // prix ligne (sous-total)
+    const priceEl = document.createElement('div');
+    priceEl.textContent = lineTotalText;
+    priceEl.style.marginLeft = "12px";
+    priceEl.style.fontSize = "0.95em";
+    priceEl.style.opacity = "0.9";
+
+    // assembler
+    right.appendChild(decBtn);
+    right.appendChild(qtySpan);
+    right.appendChild(incBtn);
+    right.appendChild(priceEl);
+
+    lineDiv.appendChild(left);
+    lineDiv.appendChild(right);
+    linesContainer.appendChild(lineDiv);
+  });
+
+  // afficher total général sous les lignes
+  const totalDiv = document.createElement('div');
+  totalDiv.style.borderTop = "1px solid #e6e6e6";
+  totalDiv.style.paddingTop = "10px";
+  totalDiv.style.marginTop = "8px";
+  totalDiv.style.textAlign = "right";
+  const totalText = `${cartTotal.toFixed(2)} ${detectedCurrency || ""}`.trim();
+  totalDiv.innerHTML = `<strong>Total : ${totalText}</strong>`;
+  linesContainer.appendChild(totalDiv);
 }
+
+
+
 
 // ---------- checkout ----------
 async function goToCheckout() {

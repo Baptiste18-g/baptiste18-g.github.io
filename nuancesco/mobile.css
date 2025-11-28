@@ -180,7 +180,7 @@ body {
   transform: translateY(20px); /* petite translation vers le bas */
   transition: opacity 0.3s ease, transform 0.3s ease;
   --couleur1: #42382E;
-  --couleur2: #625345;
+  --couleur2: #4f4337;
 }
 .hero3-fixed {
   position: fixed;
@@ -207,7 +207,7 @@ body {
 .paragraphe {
   padding-left: 10%;
   padding-right: 10%;
-  font-size: 2.2vh;
+  font-size: 2.1vh;
   color: var(--couleur2);
   max-width: 80%;
   letter-spacing: 0.4vw;
